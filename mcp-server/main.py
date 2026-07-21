@@ -5,7 +5,7 @@ from executor import execute_tool
 
 
 app = FastAPI(
-    name="AI Copilot MCP Server",
+    title="AI Copilot MCP Server",
     description="A server for the AI Copilot MCP, providing endpoints for tool execution and management.",
     version="1.0.0",
 )

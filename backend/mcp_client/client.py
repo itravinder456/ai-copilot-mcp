@@ -1,3 +1,5 @@
+import os
+
 import httpx
 
 
@@ -9,7 +11,7 @@ class MCPClientError(Exception):
 
 class MCPClient:
     def __init__(self):
-        self.base_url = "http://localhost:8001"
+        self.base_url = os.getenv("MCP_SERVER_URL", "http://localhost:8001")
 
     async def get_tools(self):
         try:

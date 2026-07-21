@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()  # Load environment variables from .env file
 
 app = FastAPI(
-    name="AI Copilot API",
+    title="AI Copilot API",
     description="An API for AI Copilot functionalities, providing endpoints for various AI-driven features and services.",
     version="1.0.0",
 )

@@ -2,7 +2,7 @@ from registry import TOOL_REGISTRY
 from tools.jira_tool import create_jira_ticket
 from tools.db_tool import query_db
 
-TOOL_MAP = {"create_jira_ticket": create_jira_ticket, "query_db": query_db}
+TOOL_MAP = {"create_jira_ticket": create_jira_ticket, "db_query": query_db}
 
 
 def execute_tool(tool_name, payload):
@@ -20,7 +20,7 @@ def execute_tool(tool_name, payload):
         validated_payload = tool_schema(**payload)
 
         # Assuming payload is a dict of parameters for the tool
-        result = tool_function(**validated_payload.dict())
+        result = tool_function(**validated_payload.model_dump())
         return {"status": "success", "result": result}
     except Exception as e:
         print(f"Error executing tool '{tool_name}': {str(e)}")
